@@ -67,7 +67,7 @@ class _MenoPaulState extends State<MenoPaul> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            'lamemopole.com V1.33' + myPerso.myPseudo,
+            'lamemopole.com V1.55' + myPerso.myPseudo,
             style: GoogleFonts.averageSans(fontSize: 15.0),
           ),
         ),
@@ -462,7 +462,6 @@ class _MenoPaulState extends State<MenoPaul> {
                       ),
                     ),
                   );
-
                 },
               ),
             ),

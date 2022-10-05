@@ -313,7 +313,6 @@ class _SqlPhlState extends State<SqlPhl> {
     if ((str.length > 2)) {
       _str = str.substring(0, str.length - 1);
     }
-
     return _str;
   }
 

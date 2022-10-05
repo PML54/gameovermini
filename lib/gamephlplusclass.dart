@@ -75,7 +75,6 @@ class PmlCheck {
   String pmltable = "";
   String pmlfield = "";
   String pmltype = "";
-
   String pmlnull = "";
   String pmlkey = "";
   String pmldefault = "";
