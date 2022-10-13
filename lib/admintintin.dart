@@ -300,18 +300,18 @@ print (  "  listPhotoBaseWork.length. + ="+ listPhotoBaseWork.length.toString() 
   initPhotoSelected() {
     listPhotoBaseWork.clear();
     photoidSelected.clear();
-    for (PhotoCat _fotocat in listPhotoCat) {
-      String _thatCode = _fotocat.photocat;
+  //for (PhotoCat _fotocat in listPhotoCat) {
+      String _thatCode ="  _fotocat.photocat";
       _thatCode ="TINTIN2";
-      if (_fotocat.selected == 1) {
+   //   if (_fotocat.selected == 1) {
         for (PhotoBase _fotobase in listPhotoBase) {
           if (_fotobase.photocat == _thatCode) {
             photoidSelected.add(_fotobase.photoid);
             listPhotoBaseWork.add(_fotobase);
           }
         }
-      }
-    }
+     // }
+  //  }
     setState(() {
       nbPhotoRandom = photoidSelected.length;
     });
