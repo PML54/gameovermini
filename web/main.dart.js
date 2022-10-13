@@ -70994,13 +70994,14 @@ A.ni.prototype={
 a6(){var s=t.Dx
 return new A.Mj(new A.dE(B.a3,$.aB()),A.a([],t.t),A.a([],t.kB),A.a([],s),A.a([],s),A.a([],t.Th),B.l)}}
 A.Mj.prototype={
-K(a){var s=this,r=null,q=A.aD(B.au,new A.aca(a),A.bq(r,r,B.v,r,r,r,r,r,r,r,r,r,B.x,r,r,r,r,B.a9,r)),p=A.aZ(B.v,B.hJ,40,new A.acb(),"Lock Memes"),o=A.aZ(B.v,B.nZ,30,new A.acc(),"Lock Photos"),n=s.ax[s.cy],m=t.p
-return A.eM(!0,A.dp(A.dL(A.a([A.b_(A.aq(A.a([q,p,o,A.a5(" "+n.f,r,r,r,r,r,r),A.a5(" "+B.e.i(n.c),r,r,r,r,r,r)],m),B.i,B.h))],m),r),A.eP(!0,A.bz(A.a([s.hu()],m),B.i,B.u,B.h),B.G,!0),A.aq(A.a([A.aZ(B.ij,B.dl,35,new A.acd(s),"Categories"),A.aZ(B.y,B.b0,35,new A.ace(s),"Prev"),A.aZ(B.y,B.bI,35,new A.acf(s),"Next")],m),B.i,B.h),r),"")},
-hu(){var s,r=null
+K(a){var s=this,r=null,q=A.aD(B.au,new A.aca(a),A.bq(r,r,B.v,r,r,r,r,r,r,r,r,r,B.x,r,r,r,r,B.a9,r)),p=A.aZ(B.v,B.hJ,30,new A.acb(),"Lock Memes"),o=A.aZ(B.v,B.nZ,30,new A.acc(),"Lock Photos"),n=s.ax[s.cy],m=t.p
+return A.eM(!0,A.dp(A.dL(A.a([A.b_(A.aq(A.a([q,p,o,A.a5("<"+n.x+">",r,r,r,r,r,r),A.a5("<"+n.y+">",r,r,r,r,r,r)],m),B.i,B.h))],m),r),A.eP(!0,A.bz(A.a([s.hu()],m),B.i,B.u,B.h),B.G,!0),A.aq(A.a([A.aZ(B.ij,B.dl,35,new A.acd(s),"Categories"),A.aZ(B.y,B.b0,35,new A.ace(s),"Prev"),A.aZ(B.y,B.bI,35,new A.acf(s),"Next")],m),B.i,B.h),r),"")},
+hu(){var s,r,q=this,p=null
 if(!$.asa)return A.b_(A.bz(B.hW,B.i,B.u,B.h))
-this.q(new A.ack(this))
-s=t.p
-return A.b_(A.bz(A.a([A.bd(B.Q,A.tv(B.cn,A.a([A.j6("t-2-12-005.jpg",r,r),new A.hU(B.fR,r,r,A.a5("lamemopole.com",r,r,r,r,r,r),r)],s),B.d_),r,r,r,r,r,r,r)],s),B.i,B.u,B.h))},
+q.q(new A.ack(q))
+s=q.ax[q.cy]
+r=t.p
+return A.b_(A.bz(A.a([A.bd(B.Q,A.tv(B.cn,A.a([A.j6("tintin/"+s.x+"."+s.y,p,p),new A.hU(B.fR,p,p,A.a5("lamemopole.com",p,p,p,p,p,p),p)],r),B.d_),p,p,p,p,p,p,p)],r),B.i,B.u,B.h))},
 cA(){var s=0,r=A.y(t.z),q=this,p,o
 var $async$cA=A.z(function(a,b){if(a===1)return A.v(b,r)
 while(true)switch(s){case 0:o=A.aW("https://lamemopole.com/php/readTINTINBD.php",0,null)
@@ -72202,7 +72203,7 @@ K(a){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e=this,d=null
 if($.e0>0)e.uO()
 e.q(new A.aj5())
 A.Le(B.fp)
-s=A.dL(d,A.a5("lamemopole.com V1.61"+e.ax.b,d,d,d,A.bL(d,15),d,d))
+s=A.dL(d,A.a5("lamemopole.com V1.63"+e.ax.b,d,d,d,A.bL(d,15),d,d))
 r=t.w
 q=a.R(r).f
 r=a.R(r).f
