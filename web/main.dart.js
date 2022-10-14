@@ -71001,7 +71001,7 @@ if(!$.asa)return A.b_(A.bz(B.hW,B.i,B.u,B.h))
 q.q(new A.ack(q))
 s=q.ax[q.cy]
 r=t.p
-return A.b_(A.bz(A.a([A.bd(B.Q,A.tv(B.cn,A.a([A.j6("tintin/"+s.x+"."+s.y,p,p),new A.hU(B.fR,p,p,A.a5("lamemopole.com",p,p,p,p,p,p),p)],r),B.d_),p,p,p,p,p,p,p)],r),B.i,B.u,B.h))},
+return A.b_(A.bz(A.a([A.bd(B.Q,A.tv(B.cn,A.a([A.j6("upload/"+s.x+"."+s.y,p,p),new A.hU(B.fR,p,p,A.a5("lamemopole.com",p,p,p,p,p,p),p)],r),B.d_),p,p,p,p,p,p,p)],r),B.i,B.u,B.h))},
 cA(){var s=0,r=A.y(t.z),q=this,p,o
 var $async$cA=A.z(function(a,b){if(a===1)return A.v(b,r)
 while(true)switch(s){case 0:o=A.aW("https://lamemopole.com/php/readTINTINBD.php",0,null)
