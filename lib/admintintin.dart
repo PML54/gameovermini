@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:gameover/configgamephl.dart';
 import 'package:gameover/gamephlclass.dart';
 import 'package:http/http.dart' as http;
-    ///data/tintin/T02/T02
+
+///data/tintin/T02/T02
 //<PMLV2>
 class AdminTintin extends StatefulWidget {
   const AdminTintin({Key? key}) : super(key: key);
@@ -54,22 +55,22 @@ class _AdminTintinState extends State<AdminTintin> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-          appBar: AppBar(actions: <Widget>[
-            Expanded(
-              child: Row(
-                children: [
-                  ElevatedButton(
-                      onPressed: () => {Navigator.pop(context)},
-                      style: ElevatedButton.styleFrom(
+      appBar: AppBar(actions: <Widget>[
+        Expanded(
+          child: Row(
+            children: [
+              ElevatedButton(
+                  onPressed: () => {Navigator.pop(context)},
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 5),
+                      textStyle: const TextStyle(
+                          fontSize: 14,
                           backgroundColor: Colors.red,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 5),
-                          textStyle: const TextStyle(
-                              fontSize: 14,
-                              backgroundColor: Colors.red,
-                              fontWeight: FontWeight.bold)),
-                      child: const Text('Exit')),
-                /*  IconButton(
+                          fontWeight: FontWeight.bold)),
+                  child: const Text('Exit')),
+              /*  IconButton(
                     icon: const Icon(Icons.delete),
                     color: Colors.red,
                     iconSize: 30.0,
@@ -78,75 +79,74 @@ class _AdminTintinState extends State<AdminTintin> {
                       //lockMeme();
                     },
                   ),*/
-                  IconButton(
-                    icon: phIcon,
-                    color: Colors.black,
-                    iconSize: 30.0,
-                    tooltip: 'Lock Photos',
-                    onPressed: () {
-                      lockPhoto();
-                    },
-                  ),
-            /*      IconButton(
+              IconButton(
+                icon: phIcon,
+                color: Colors.black,
+                iconSize: 30.0,
+                tooltip: 'Lock Photos',
+                onPressed: () {
+                  lockPhoto();
+                },
+              ),
+              /*      IconButton(
                     icon: const Icon(Icons.error),
                     color: Colors.red,
                     iconSize: 30.0,
                     tooltip: 'Lock Photos',
                     onPressed: () {},
                   ),*/
-                  Text("<" +listPhotoBaseWork[cestCeluiLa].photofilename+">"),
-
-                ],
-              ),
-            ),
-          ]),
-          body:
-          SafeArea(
-            child: Column(children: <Widget>[
-           Visibility(
-                visible: boolCategory,
-                child: getViewPhotoCat(),
-              ),
-            getget(),
-            ]),
-          ),
-          bottomNavigationBar: Row(
-            children: [
-              IconButton(
-                  icon: const Icon(Icons.insert_photo),
-                  iconSize: 35,
-                  color: Colors.greenAccent,
-                  tooltip: 'Categories',
-                  onPressed: () {
-                    setState(() {
-                      boolCategory = !boolCategory;
-                    });
-                  }),
-              IconButton(
-                  icon: const Icon(Icons.arrow_back),
-                  iconSize: 35,
-                  color: Colors.blue,
-                  tooltip: 'Prev',
-                  onPressed: () {
-                    prevPRL();
-                    //createMeme();
-                    //stopTimer();
-                  }),
-              IconButton(
-                  icon: const Icon(Icons.arrow_forward),
-                  iconSize: 35,
-                  color: Colors.blue,
-                  tooltip: 'Next',
-                  onPressed: () {
-                    nextPRL();
-                  }),
+              Text("<" + listPhotoBaseWork[cestCeluiLa].photofilename + ">"),
             ],
           ),
-        ));
+        ),
+      ]),
+      body: SafeArea(
+        child: Column(children: <Widget>[
+          Visibility(
+            visible: boolCategory,
+            child: getViewPhotoCat(),
+          ),
+          getget(),
+        ]),
+      ),
+      bottomNavigationBar: Row(
+        children: [
+          IconButton(
+              icon: const Icon(Icons.insert_photo),
+              iconSize: 35,
+              color: Colors.greenAccent,
+              tooltip: 'Categories',
+              onPressed: () {
+                setState(() {
+                  boolCategory = !boolCategory;
+                });
+              }),
+          IconButton(
+              icon: const Icon(Icons.arrow_back),
+              iconSize: 35,
+              color: Colors.blue,
+              tooltip: 'Prev',
+              onPressed: () {
+                prevPRL();
+                //createMeme();
+                //stopTimer();
+              }),
+          IconButton(
+              icon: const Icon(Icons.arrow_forward),
+              iconSize: 35,
+              color: Colors.blue,
+              tooltip: 'Next',
+              onPressed: () {
+                nextPRL();
+              }),
+        ],
+      ),
+    ));
   }
 
   Expanded getget() {
-    if (!getPhotoBaseState ) { // AIE PML
+    if (!getPhotoBaseState) {
+      // AIE PML
       return Expanded(
         child: Column(
           children: const [
@@ -164,33 +164,21 @@ class _AdminTintinState extends State<AdminTintin> {
     //cestCeluiLa
     return Expanded(
         child: (Column(
-          children: [
-            Container(
-              alignment: Alignment.center,
-              child: Stack(children: [
+      children: [
+        Container(
+          alignment: Alignment.center,
+          child: Stack(children: [
             Image.network(
-                  "upload/" +
-                      listPhotoBaseWork[cestCeluiLa].photofilename +
-                      "." +
-                      listPhotoBaseWork[cestCeluiLa].photofiletype,
-                ),
-
-                Align(alignment: Alignment.topRight, child: Text("lamemopole.com")),
-              ]),
-            )
-          ],
-        )));
-  }
-
-  lockPhoto() {
-    setState(() {
-      lockPhotoState = !lockPhotoState;
-      if (lockPhotoState) {
-        phIcon = thisIconclose;
-      } else {
-        phIcon = thisIconopen;
-      }
-    });
+              "upload/" +
+                  listPhotoBaseWork[cestCeluiLa].photofilename +
+                  "." +
+                  listPhotoBaseWork[cestCeluiLa].photofiletype,
+            ),
+            Align(alignment: Alignment.topRight, child: Text("lamemopole.com")),
+          ]),
+        )
+      ],
+    )));
   }
 
   Future getPhotoBase() async {
@@ -208,13 +196,13 @@ class _AdminTintinState extends State<AdminTintin> {
         getPhotoBaseState = true;
         cestCeluiLa = 0;
         getPhotoCat();
-
       });
     } else {}
   }
 
   Future getPhotoCat() async {
-    Uri url = Uri.parse(pathPHP + "getPHOTOCAT.php");
+    //getTINTINCAT
+    Uri url = Uri.parse(pathPHP + "getTINTINCAT.php");
     getPhotoCatState = false;
     getPhotoCatError = 0;
 
@@ -235,7 +223,6 @@ class _AdminTintinState extends State<AdminTintin> {
         getPhotoCatState = true;
 
         initPhotoCat(); // En cascade
-
       });
     } else {}
   }
@@ -253,9 +240,9 @@ class _AdminTintinState extends State<AdminTintin> {
     return (false);
   }
 
-Expanded getViewPhotoCat() {
+  Expanded getViewPhotoCat() {
     setState(() {});
-    print ("getViewPhotoCat");
+    print("getViewPhotoCat");
     if (!getPhotoCatState | !getPhotoBaseState) {
       return (const Expanded(child: Text("............")));
     }
@@ -269,11 +256,11 @@ Expanded getViewPhotoCat() {
                 children: [
                   Expanded(
                       child: Row(
-                        children: [
-                          Text(listPhotoCat[index].photocast),
-                          selIcon[listPhotoCat[index].selected],
-                        ],
-                      )),
+                    children: [
+                      Text(listPhotoCat[index].photocast),
+                      selIcon[listPhotoCat[index].selected],
+                    ],
+                  )),
                 ],
               ),
               onTap: () {
@@ -319,22 +306,21 @@ Expanded getViewPhotoCat() {
   initPhotoSelected() {
     listPhotoBaseWork.clear();
     photoidSelected.clear();
-  //for (PhotoCat _fotocat in listPhotoCat) {
-      String _thatCode ="  _fotocat.photocat";
-      _thatCode ="TINTIN2";
-   //   if (_fotocat.selected == 1) {
-        for (PhotoBase _fotobase in listPhotoBase) {
-          if (_fotobase.photocat == _thatCode) {
-            photoidSelected.add(_fotobase.photoid);
-            listPhotoBaseWork.add(_fotobase);
-          }
-        }
-     // }
-  //  }
+    //for (PhotoCat _fotocat in listPhotoCat) {
+    String _thatCode = "  _fotocat.photocat";
+    _thatCode = "TINTIN2";
+    //   if (_fotocat.selected == 1) {
+    for (PhotoBase _fotobase in listPhotoBase) {
+      if (_fotobase.photocat == _thatCode) {
+        photoidSelected.add(_fotobase.photoid);
+        listPhotoBaseWork.add(_fotobase);
+      }
+    }
+    // }
+    //  }
     setState(() {
       nbPhotoRandom = photoidSelected.length;
     });
-
   }
 
   @override
@@ -343,7 +329,6 @@ Expanded getViewPhotoCat() {
 
     setState(() {
       getPhotoBase();
-
 
       selIcon.clear();
       selIcon.add(const Icon(Icons.remove));
@@ -355,7 +340,6 @@ Expanded getViewPhotoCat() {
       lockPhotoState = false;
 
       listPhotoBaseWork.clear();
-
     });
   }
 
@@ -370,9 +354,16 @@ Expanded getViewPhotoCat() {
     });
   }
 
-
-
-
+  lockPhoto() {
+    setState(() {
+      lockPhotoState = !lockPhotoState;
+      if (lockPhotoState) {
+        phIcon = thisIconclose;
+      } else {
+        phIcon = thisIconopen;
+      }
+    });
+  }
 
   nextPRL() {
     setState(() {
