@@ -72,7 +72,7 @@ class _AdminTintinState extends State<AdminTintin> {
                   IconButton(
                     icon: const Icon(Icons.delete),
                     color: Colors.red,
-                    iconSize: 40.0,
+                    iconSize: 30.0,
                     tooltip: 'Lock Memes',
                     onPressed: () {
                       //lockMeme();
@@ -85,19 +85,20 @@ class _AdminTintinState extends State<AdminTintin> {
                     tooltip: 'Lock Photos',
                     onPressed: () {},
                   ),
-             /*     Text(" " + listPhotoBaseWork[cestCeluiLa].photocat),
-                  Text(" " + listPhotoBaseWork[cestCeluiLa].photoid.toString())*/
+                  Text("<" +listPhotoBaseWork[cestCeluiLa].photofilename+">"),
+
                 ],
               ),
             ),
           ]),
-          body: SafeArea(
+          body:
+          SafeArea(
             child: Column(children: <Widget>[
-              Visibility(
+           Visibility(
                 visible: boolCategory,
                 child: getViewPhotoCat(),
               ),
-              getget(),
+            getget(),
             ]),
           ),
           bottomNavigationBar: Row(
@@ -136,7 +137,7 @@ class _AdminTintinState extends State<AdminTintin> {
   }
 
   Expanded getget() {
-    if (!getPhotoBaseState  ) { // AIE PML
+    if (!getPhotoBaseState ) { // AIE PML
       return Expanded(
         child: Column(
           children: const [
@@ -145,25 +146,26 @@ class _AdminTintinState extends State<AdminTintin> {
         ),
       );
     }
-    print (  "  [cestCeluiLa]  ="+cestCeluiLa.toString()  );
-print (  "  listPhotoBaseWork.length. + ="+ listPhotoBaseWork.length.toString() );
+
     setState(() {
       if (repaintPRL) {
         repaintPRL = false;
       }
     });
+    //cestCeluiLa
     return Expanded(
         child: (Column(
           children: [
             Container(
               alignment: Alignment.center,
               child: Stack(children: [
-                Image.network(
-                  "tintin/" +
+            Image.network(
+                  "upload/" +
                       listPhotoBaseWork[cestCeluiLa].photofilename +
                       "." +
                       listPhotoBaseWork[cestCeluiLa].photofiletype,
                 ),
+
                 Align(alignment: Alignment.topRight, child: Text("lamemopole.com")),
               ]),
             )
@@ -171,7 +173,16 @@ print (  "  listPhotoBaseWork.length. + ="+ listPhotoBaseWork.length.toString() 
         )));
   }
 
-
+  lockPhoto() {
+    setState(() {
+      lockPhotoState = !lockPhotoState;
+      if (lockPhotoState) {
+        phIcon = thisIconclose;
+      } else {
+        phIcon = thisIconopen;
+      }
+    });
+  }
 
   Future getPhotoBase() async {
     // Lire TABLE   PHOTOBASE et mettre dans  listPhotoBase
@@ -188,7 +199,7 @@ print (  "  listPhotoBaseWork.length. + ="+ listPhotoBaseWork.length.toString() 
         getPhotoBaseState = true;
         cestCeluiLa = 0;
         getPhotoCat();
-        print ("listPhotoBase.length"+listPhotoBase.length.toString());
+
       });
     } else {}
   }
@@ -216,7 +227,6 @@ print (  "  listPhotoBaseWork.length. + ="+ listPhotoBaseWork.length.toString() 
 
         initPhotoCat(); // En cascade
 
-        print ("listPhotoCat length"+listPhotoCat.length.toString());
       });
     } else {}
   }
@@ -234,7 +244,7 @@ print (  "  listPhotoBaseWork.length. + ="+ listPhotoBaseWork.length.toString() 
     return (false);
   }
 
-  Expanded getViewPhotoCat() {
+Expanded getViewPhotoCat() {
     setState(() {});
     print ("getViewPhotoCat");
     if (!getPhotoCatState | !getPhotoBaseState) {
@@ -315,7 +325,7 @@ print (  "  listPhotoBaseWork.length. + ="+ listPhotoBaseWork.length.toString() 
     setState(() {
       nbPhotoRandom = photoidSelected.length;
     });
-    print (" istPhotoBaseWork.lengyt"+  listPhotoBaseWork.length.toString());
+
   }
 
   @override
@@ -337,7 +347,6 @@ print (  "  listPhotoBaseWork.length. + ="+ listPhotoBaseWork.length.toString() 
 
       listPhotoBaseWork.clear();
 
-      print (" Fin initstate");
     });
   }
 
@@ -352,26 +361,9 @@ print (  "  listPhotoBaseWork.length. + ="+ listPhotoBaseWork.length.toString() 
     });
   }
 
-  lockPhoto() {
-    setState(() {
-      lockPhotoState = !lockPhotoState;
-      if (lockPhotoState) {
-        phIcon = thisIconclose;
-      } else {
-        phIcon = thisIconopen;
-      }
-    });
-  }
 
-  void manageLocks(index) {
-    setState(() {
-      if (listPhotoCat[index].selected == 1) {
-        catIcon = const Icon(Icons.add);
-      } else {
-        catIcon = const Icon(Icons.remove);
-      }
-    });
-  }
+
+
 
   nextPRL() {
     setState(() {
