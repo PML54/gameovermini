@@ -71052,7 +71052,7 @@ B.c.M(m)
 s=n.Q
 B.c.M(s)
 for(r=n.at,q=r.length,p=0;p<r.length;r.length===q||(0,A.I)(r),++p){o=r[p]
-if(o.f==="TINTIN2"){s.push(o.c)
+if(o.f==="T2"){s.push(o.c)
 m.push(o)}}n.q(new A.acp(n))},
 ag(){this.aq()
 this.q(new A.acq(this))},

@@ -308,7 +308,7 @@ class _AdminTintinState extends State<AdminTintin> {
     photoidSelected.clear();
     //for (PhotoCat _fotocat in listPhotoCat) {
     String _thatCode = "  _fotocat.photocat";
-    _thatCode = "TINTIN2";
+    _thatCode = "T2";
     //   if (_fotocat.selected == 1) {
     for (PhotoBase _fotobase in listPhotoBase) {
       if (_fotobase.photocat == _thatCode) {
