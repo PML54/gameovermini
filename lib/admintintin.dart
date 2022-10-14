@@ -69,7 +69,7 @@ class _AdminTintinState extends State<AdminTintin> {
                               backgroundColor: Colors.red,
                               fontWeight: FontWeight.bold)),
                       child: const Text('Exit')),
-                  IconButton(
+                /*  IconButton(
                     icon: const Icon(Icons.delete),
                     color: Colors.red,
                     iconSize: 30.0,
@@ -77,14 +77,23 @@ class _AdminTintinState extends State<AdminTintin> {
                     onPressed: () {
                       //lockMeme();
                     },
-                  ),
+                  ),*/
                   IconButton(
+                    icon: phIcon,
+                    color: Colors.black,
+                    iconSize: 30.0,
+                    tooltip: 'Lock Photos',
+                    onPressed: () {
+                      lockPhoto();
+                    },
+                  ),
+            /*      IconButton(
                     icon: const Icon(Icons.error),
                     color: Colors.red,
                     iconSize: 30.0,
                     tooltip: 'Lock Photos',
                     onPressed: () {},
-                  ),
+                  ),*/
                   Text("<" +listPhotoBaseWork[cestCeluiLa].photofilename+">"),
 
                 ],
