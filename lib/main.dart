@@ -68,7 +68,7 @@ class _MenoPaulState extends State<MenoPaul> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            'lamemopole.com V1.67' + myPerso.myPseudo,
+            'lamemopole.com V1.68' + myPerso.myPseudo,
             style: GoogleFonts.averageSans(fontSize: 15.0),
           ),
         ),
@@ -282,12 +282,32 @@ class _MenoPaulState extends State<MenoPaul> {
                           Visibility(
                             visible: isAdmin,
                             child: Padding(
-                              padding: const EdgeInsets.all(5.0),
+                              padding: const EdgeInsets.all(2.0),
                               child: ElevatedButton(
                                 child: Text(
-                                  'ADMIN',
+                                  'TINTIN',
                                   style:
-                                      GoogleFonts.averageSans(fontSize: 12.0),
+                                  GoogleFonts.averageSans(fontSize: 10.0),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AdminTintin()),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                          Visibility(
+                            visible: isAdmin,
+                            child: Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: ElevatedButton(
+                                child: Text(
+                                  'ADMN',
+                                  style:
+                                      GoogleFonts.averageSans(fontSize: 10.0),
                                 ),
                                 onPressed: () {
                                   Navigator.push(
@@ -302,12 +322,12 @@ class _MenoPaulState extends State<MenoPaul> {
                           Visibility(
                             visible: isAdmin,
                             child: Padding(
-                              padding: const EdgeInsets.all(5.0),
+                              padding: const EdgeInsets.all(2.0),
                               child: ElevatedButton(
                                 child: Text(
-                                  'PHOTOS',
+                                  'PHOTO',
                                   style:
-                                      GoogleFonts.averageSans(fontSize: 12.0),
+                                      GoogleFonts.averageSans(fontSize: 10.0),
                                 ),
                                 onPressed: () {
                                   Navigator.push(
@@ -322,12 +342,12 @@ class _MenoPaulState extends State<MenoPaul> {
                           Visibility(
                             visible: isAdmin,
                             child: Padding(
-                              padding: const EdgeInsets.all(5.0),
+                              padding: const EdgeInsets.all(2.0),
                               child: ElevatedButton(
                                 child: Text(
-                                  'VIDEOS',
+                                  'VIDEO',
                                   style:
-                                      GoogleFonts.averageSans(fontSize: 12.0),
+                                      GoogleFonts.averageSans(fontSize: 10.0),
                                 ),
                                 onPressed: () {
                                   Navigator.push(
@@ -339,26 +359,7 @@ class _MenoPaulState extends State<MenoPaul> {
                               ),
                             ),
                           ),
-                          Visibility(
-                            visible: isAdmin,
-                            child: Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: ElevatedButton(
-                                child: Text(
-                                  'TINTIN',
-                                  style:
-                                  GoogleFonts.averageSans(fontSize: 12.0),
-                                ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => AdminTintin()),
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
+
                         ],
                       ),
                       Row(
