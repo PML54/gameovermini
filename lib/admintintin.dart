@@ -164,6 +164,19 @@ bool       createPhotoBaseState = false;
                       backgroundColor: Colors.red,
                       fontWeight: FontWeight.bold)),
               child: const Text('N°4')),
+          ElevatedButton(
+              onPressed: () => {
+                initPhotoSelected("T5")
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 5),
+                  textStyle: const TextStyle(
+                      fontSize: 10,
+                      backgroundColor: Colors.red,
+                      fontWeight: FontWeight.bold)),
+              child: const Text('N°5')),
         ],
       ),
     ));
