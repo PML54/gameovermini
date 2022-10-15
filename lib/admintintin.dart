@@ -16,9 +16,10 @@ class AdminTintin extends StatefulWidget {
 class _AdminTintinState extends State<AdminTintin> {
   static bool getPhotoCatState = false;
   static bool getPhotoBaseState = false;
+
   bool isAdminConnected = false;
   bool boolCategory = false;
-
+bool       createPhotoBaseState = false;
   int getPhotoCatError = -1;
   int nbPhotoCat = 0;
   int getPhotoBaseError = -1;
@@ -359,7 +360,39 @@ class _AdminTintinState extends State<AdminTintin> {
   }
 
 
-  saveMemopole() {}
+  saveMemopole() {
+
+    createPhotoBase(  listPhotoBaseWork[cestCeluiLa].photoinode ,  listPhotoBaseWork[cestCeluiLa].photofilename );
+
+  }
  deleteMemopole() {}
+  Future createPhotoBase(int _inode, String _casename) async {
+
+    Uri url = Uri.parse(pathPHP + "createPHOTOBASE.php");
+    setState(() {
+      createPhotoBaseState = false;
+    });
+
+    var data = {
+      "PHOTOINODE":_inode.toString(),
+      "PHOTOUPLOADER": "PHL",
+      "PHOTOCAT": "TINTIN",
+      "PHOTOFILETYPE": "jpg",
+      "PHOTOFILESIZE": "0",
+      "PHOTOFILENAME": _casename,
+      "PHOTODATE":  "",
+      "PHOTOWIDTH": "0",
+      "PHOTOHEIGHT": "0",
+
+
+    };
+    var res = await http.post(url, body: data);
+    if (res.statusCode == 200) {
+      setState(() {
+        createPhotoBaseState  = true;
+      });
+    }
+  }
+
 
 }
