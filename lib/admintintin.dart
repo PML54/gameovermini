@@ -99,7 +99,7 @@ bool       createPhotoBaseState = false;
       ),
       bottomNavigationBar: Row(
         children: [
-          IconButton(
+     /*     IconButton(
               icon: const Icon(Icons.insert_photo),
               iconSize: 35,
               color: Colors.greenAccent,
@@ -108,7 +108,7 @@ bool       createPhotoBaseState = false;
                 setState(() {
                   boolCategory = !boolCategory;
                 });
-              }),
+              }),*/
           IconButton(
               icon: const Icon(Icons.arrow_back),
               iconSize: 35,
@@ -125,6 +125,45 @@ bool       createPhotoBaseState = false;
               onPressed: () {
                 nextPRL();
               }),
+          ElevatedButton(
+              onPressed: () => {
+              initPhotoSelected("T2")
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 5),
+                  textStyle: const TextStyle(
+                      fontSize: 10,
+                      backgroundColor: Colors.red,
+                      fontWeight: FontWeight.bold)),
+              child: const Text('N°2')),
+          ElevatedButton(
+              onPressed: () => {
+              initPhotoSelected("T3")
+          },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 5),
+                  textStyle: const TextStyle(
+                      fontSize: 10,
+                      backgroundColor: Colors.red,
+                      fontWeight: FontWeight.bold)),
+              child: const Text('N°3')),
+          ElevatedButton(
+              onPressed: () => {
+              initPhotoSelected("T4")
+          },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 5),
+                  textStyle: const TextStyle(
+                      fontSize: 10,
+                      backgroundColor: Colors.red,
+                      fontWeight: FontWeight.bold)),
+              child: const Text('N°4')),
         ],
       ),
     ));
@@ -260,7 +299,7 @@ bool       createPhotoBaseState = false;
                   } else {
                     catIcon = const Icon(Icons.remove);
                   }
-                  initPhotoSelected();
+                  initPhotoSelected("T2");
                 });
               });
         });
@@ -285,15 +324,15 @@ bool       createPhotoBaseState = false;
       _cathy.setphotoid(_thatid);
       _cathy.supMM();
     }
-    initPhotoSelected();
+    initPhotoSelected("T2");
   }
 
-  initPhotoSelected() {
+  initPhotoSelected(String _thatCode) {
     listPhotoBaseWork.clear();
     photoidSelected.clear();
     //for (PhotoCat _fotocat in listPhotoCat) {
-    String _thatCode = "  _fotocat.photocat";
-    _thatCode = "T4";
+   // String _thatCode = "  _fotocat.photocat";
+   // _thatCode = "T4";
     //   if (_fotocat.selected == 1) {
     for (PhotoTintin _fotobase in listPhotoBase) {
       if (_fotobase.photocat == _thatCode) {
