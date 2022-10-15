@@ -25,8 +25,8 @@ class _AdminTintinState extends State<AdminTintin> {
   List<int> photoidSelected = []; // retenues avec les Catégotire
 
   List<PhotoCat> listPhotoCat = [];
-  List<PhotoBase> listPhotoBase = [];
-  List<PhotoBase> listPhotoBaseWork = [];
+  List<PhotoTintin> listPhotoBase = [];
+  List<PhotoTintin> listPhotoBaseWork = [];
   List<Icon> selIcon = [];
   Icon catIcon = const Icon(Icons.remove);
   int nbPhotoRandom = 0;
@@ -35,7 +35,7 @@ class _AdminTintinState extends State<AdminTintin> {
 
   Icon thisIconclose = const Icon(Icons.lock_rounded);
   Icon thisIconopen = const Icon(Icons.lock_open_rounded);
-  bool lockMemeState = true;
+
   bool lockPhotoState = true;
   Icon mmIcon = const Icon(Icons.lock_open_rounded);
   Icon phIcon = const Icon(Icons.lock_open_rounded);
@@ -57,17 +57,29 @@ class _AdminTintinState extends State<AdminTintin> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 5),
                       textStyle: const TextStyle(
-                          fontSize: 14,
+                          fontSize: 12,
                           backgroundColor: Colors.red,
                           fontWeight: FontWeight.bold)),
                   child: const Text('Exit')),
               IconButton(
-                icon: phIcon,
-                color: Colors.black,
-                iconSize: 30.0,
-                tooltip: 'Lock Photos',
+                icon: const Icon(Icons.delete),
+                color: Colors.red,
+                iconSize: 20.0,
+                tooltip: ' ',
                 onPressed: () {
-                  lockPhoto();
+                  setState(() {
+                   deleteMemopole();
+                  });
+                },
+              ),
+              Text("<" + listPhotoBaseWork[cestCeluiLa].photophl.toString()+ ">"),
+              IconButton(
+                icon:  const Icon(Icons.save),
+                color: Colors.black,
+                iconSize: 20.0,
+                tooltip: 'go memopole',
+                onPressed: () {
+                  saveMemopole();
                 },
               ),
               Text("<" + listPhotoBaseWork[cestCeluiLa].photofilename + ">"),
@@ -154,7 +166,7 @@ class _AdminTintinState extends State<AdminTintin> {
     )));
   }
 
-  Future getPhotoBase() async {
+  Future getTintinBd() async {
     // Lire TABLE   PHOTOBASE et mettre dans  listPhotoBase
 
     Uri url = Uri.parse(pathPHP + "readTINTINBD.php");
@@ -165,7 +177,7 @@ class _AdminTintinState extends State<AdminTintin> {
       var datamysql = jsonDecode(response.body) as List;
       setState(() {
         listPhotoBase =
-            datamysql.map((xJson) => PhotoBase.fromJson(xJson)).toList();
+            datamysql.map((xJson) => PhotoTintin.fromJson(xJson)).toList();
         getPhotoBaseState = true;
         cestCeluiLa = 0;
         getPhotoCat();
@@ -261,7 +273,7 @@ class _AdminTintinState extends State<AdminTintin> {
     for (PhotoCat _cathy in listPhotoCat) {
       _nbcat = 0;
       String _thatCode = _cathy.photocat;
-      for (PhotoBase _brocky in listPhotoBase) {
+      for (PhotoTintin _brocky in listPhotoBase) {
         if (_brocky.photocat == _thatCode) {
           _nbcat++;
           _thatid = _brocky.photoid;
@@ -280,9 +292,9 @@ class _AdminTintinState extends State<AdminTintin> {
     photoidSelected.clear();
     //for (PhotoCat _fotocat in listPhotoCat) {
     String _thatCode = "  _fotocat.photocat";
-    _thatCode = "T3";
+    _thatCode = "T4";
     //   if (_fotocat.selected == 1) {
-    for (PhotoBase _fotobase in listPhotoBase) {
+    for (PhotoTintin _fotobase in listPhotoBase) {
       if (_fotobase.photocat == _thatCode) {
         photoidSelected.add(_fotobase.photoid);
         listPhotoBaseWork.add(_fotobase);
@@ -300,7 +312,7 @@ class _AdminTintinState extends State<AdminTintin> {
     super.initState();
 
     setState(() {
-      getPhotoBase();
+      getTintinBd();
 
       selIcon.clear();
       selIcon.add(const Icon(Icons.remove));
@@ -315,16 +327,6 @@ class _AdminTintinState extends State<AdminTintin> {
     });
   }
 
-  lockMeme() {
-    setState(() {
-      lockMemeState = !lockMemeState;
-      if (lockMemeState) {
-        mmIcon = thisIconclose;
-      } else {
-        mmIcon = thisIconopen;
-      }
-    });
-  }
 
   lockPhoto() {
     setState(() {
@@ -355,4 +357,9 @@ class _AdminTintinState extends State<AdminTintin> {
       repaintPRL = true;
     });
   }
+
+
+  saveMemopole() {}
+ deleteMemopole() {}
+
 }
