@@ -702,3 +702,44 @@ class SurCat {
     selected = _selected;
   }
 }
+class PhotoTintin {
+  int photofilesize = 0;
+  int photoheight = 0;
+  int photoid = 0;
+  int photoinode = 0;
+  int photowidth = 0;
+  String photocat = "NOT";
+  String photouploader = "YYY";
+  String photodate = "05-05-2022";
+  String photofilename = "FFFF";
+  String photofiletype = "TTT";
+
+
+  PhotoTintin({
+    required this.photofilesize,
+    required this.photoheight,
+    required this.photoid,
+    required this.photoinode,
+    required this.photowidth,
+    required this.photocat,
+    required this.photouploader,
+    required this.photodate,
+    required this.photofilename,
+    required this.photofiletype,
+  });
+
+  factory PhotoTintin.fromJson(Map<String, dynamic> json) {
+    return PhotoTintin(
+      photofilesize: int.parse(json['PHOTOFILESIZE']),
+      photoheight: int.parse(json['PHOTOHEIGHT']),
+      photoid: int.parse(json['PHOTOID']),
+      photoinode: int.parse(json['PHOTOINODE']),
+      photowidth: int.parse(json['PHOTOWIDTH']),
+      photocat: json['PHOTOCAT'] as String,
+      photouploader: json['PHOTOUPLOADER'] as String,
+      photodate: json['PHOTODATE'] as String,
+      photofilename: json['PHOTOFILENAME'] as String,
+      photofiletype: json['PHOTOFILETYPE'] as String,
+    );
+  }
+}

@@ -1,14 +1,11 @@
 import 'dart:convert';
 import 'dart:core';
 
-import 'package:dart_ipify/dart_ipify.dart';
 import 'package:flutter/material.dart';
 import 'package:gameover/configgamephl.dart';
 import 'package:gameover/gamephlclass.dart';
 import 'package:http/http.dart' as http;
 
-///data/tintin/T02/T02
-//<PMLV2>
 class AdminTintin extends StatefulWidget {
   const AdminTintin({Key? key}) : super(key: key);
 
@@ -20,10 +17,6 @@ class _AdminTintinState extends State<AdminTintin> {
   static bool getPhotoCatState = false;
   static bool getPhotoBaseState = false;
   bool isAdminConnected = false;
-
-  TextEditingController legendeController = TextEditingController();
-  int totalSeconds = 100;
-  bool timeOut = false;
   bool boolCategory = false;
 
   int getPhotoCatError = -1;
@@ -40,8 +33,6 @@ class _AdminTintinState extends State<AdminTintin> {
   int photoIdRandom = 0;
   int cestCeluiLa = 0;
 
-//
-  String ipv4name = "**.**.**";
   Icon thisIconclose = const Icon(Icons.lock_rounded);
   Icon thisIconopen = const Icon(Icons.lock_open_rounded);
   bool lockMemeState = true;
@@ -70,15 +61,6 @@ class _AdminTintinState extends State<AdminTintin> {
                           backgroundColor: Colors.red,
                           fontWeight: FontWeight.bold)),
                   child: const Text('Exit')),
-              /*  IconButton(
-                    icon: const Icon(Icons.delete),
-                    color: Colors.red,
-                    iconSize: 30.0,
-                    tooltip: 'Lock Memes',
-                    onPressed: () {
-                      //lockMeme();
-                    },
-                  ),*/
               IconButton(
                 icon: phIcon,
                 color: Colors.black,
@@ -88,13 +70,6 @@ class _AdminTintinState extends State<AdminTintin> {
                   lockPhoto();
                 },
               ),
-              /*      IconButton(
-                    icon: const Icon(Icons.error),
-                    color: Colors.red,
-                    iconSize: 30.0,
-                    tooltip: 'Lock Photos',
-                    onPressed: () {},
-                  ),*/
               Text("<" + listPhotoBaseWork[cestCeluiLa].photofilename + ">"),
             ],
           ),
@@ -128,8 +103,6 @@ class _AdminTintinState extends State<AdminTintin> {
               tooltip: 'Prev',
               onPressed: () {
                 prevPRL();
-                //createMeme();
-                //stopTimer();
               }),
           IconButton(
               icon: const Icon(Icons.arrow_forward),
@@ -161,7 +134,7 @@ class _AdminTintinState extends State<AdminTintin> {
         repaintPRL = false;
       }
     });
-    //cestCeluiLa
+
     return Expanded(
         child: (Column(
       children: [
@@ -174,7 +147,7 @@ class _AdminTintinState extends State<AdminTintin> {
                   "." +
                   listPhotoBaseWork[cestCeluiLa].photofiletype,
             ),
-            Align(alignment: Alignment.topRight, child: Text("lamemopole.com")),
+            //Align(alignment: Alignment.topRight, child: Text("lamemopole.com")),
           ]),
         )
       ],
@@ -201,7 +174,6 @@ class _AdminTintinState extends State<AdminTintin> {
   }
 
   Future getPhotoCat() async {
-    //getTINTINCAT
     Uri url = Uri.parse(pathPHP + "getTINTINCAT.php");
     getPhotoCatState = false;
     getPhotoCatError = 0;
@@ -242,7 +214,7 @@ class _AdminTintinState extends State<AdminTintin> {
 
   Expanded getViewPhotoCat() {
     setState(() {});
-    print("getViewPhotoCat");
+
     if (!getPhotoCatState | !getPhotoBaseState) {
       return (const Expanded(child: Text("............")));
     }
@@ -308,7 +280,7 @@ class _AdminTintinState extends State<AdminTintin> {
     photoidSelected.clear();
     //for (PhotoCat _fotocat in listPhotoCat) {
     String _thatCode = "  _fotocat.photocat";
-    _thatCode = "T2";
+    _thatCode = "T3";
     //   if (_fotocat.selected == 1) {
     for (PhotoBase _fotobase in listPhotoBase) {
       if (_fotobase.photocat == _thatCode) {
