@@ -127,6 +127,19 @@ bool       createPhotoBaseState = false;
               }),
           ElevatedButton(
               onPressed: () => {
+                initPhotoSelected("T1")
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 5),
+                  textStyle: const TextStyle(
+                      fontSize: 10,
+                      backgroundColor: Colors.red,
+                      fontWeight: FontWeight.bold)),
+              child: const Text('1')),
+          ElevatedButton(
+              onPressed: () => {
               initPhotoSelected("T2")
               },
               style: ElevatedButton.styleFrom(
@@ -137,7 +150,7 @@ bool       createPhotoBaseState = false;
                       fontSize: 10,
                       backgroundColor: Colors.red,
                       fontWeight: FontWeight.bold)),
-              child: const Text('N°2')),
+              child: const Text('2')),
           ElevatedButton(
               onPressed: () => {
               initPhotoSelected("T3")
@@ -150,7 +163,7 @@ bool       createPhotoBaseState = false;
                       fontSize: 10,
                       backgroundColor: Colors.red,
                       fontWeight: FontWeight.bold)),
-              child: const Text('N°3')),
+              child: const Text('3')),
           ElevatedButton(
               onPressed: () => {
               initPhotoSelected("T4")
@@ -163,7 +176,7 @@ bool       createPhotoBaseState = false;
                       fontSize: 10,
                       backgroundColor: Colors.red,
                       fontWeight: FontWeight.bold)),
-              child: const Text('N°4')),
+              child: const Text('4')),
           ElevatedButton(
               onPressed: () => {
                 initPhotoSelected("T5")
@@ -176,7 +189,34 @@ bool       createPhotoBaseState = false;
                       fontSize: 10,
                       backgroundColor: Colors.red,
                       fontWeight: FontWeight.bold)),
-              child: const Text('N°5')),
+              child: const Text('5')),
+          ElevatedButton(
+              onPressed: () => {
+                initPhotoSelected("T6")
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 5),
+                  textStyle: const TextStyle(
+                      fontSize: 10,
+                      backgroundColor: Colors.red,
+                      fontWeight: FontWeight.bold)),
+              child: const Text('6')),
+          ElevatedButton(
+              onPressed: () => {
+                initPhotoSelected("T7")
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 5),
+                  textStyle: const TextStyle(
+                      fontSize: 10,
+                      backgroundColor: Colors.red,
+                      fontWeight: FontWeight.bold)),
+              child: const Text('7')),
+
         ],
       ),
     ));
