@@ -306,12 +306,10 @@ class _GameManagerState extends State<GameManager> {
           ),
         ));
   }
-
   copyClipBoard(String copire) {
     //  Clipboard.setData(ClipboardData(text: "your text"));
     FlutterClipboard.copy(copire).then((value) => print('copied'));
   }
-
   Expanded dispMyGames() {
 
     setState(() {});
@@ -337,7 +335,6 @@ class _GameManagerState extends State<GameManager> {
         });
     return (Expanded(child: listView));
   }
-
   genCodeGame() {
     var rng = Random();
     var rand1 = rng.nextInt(8) + 1;
@@ -349,7 +346,6 @@ class _GameManagerState extends State<GameManager> {
       thatGameName = thatGameCode.toString();
     });
   }
-
   Future getGmGames() async {
     Uri url = Uri.parse(pathPHP + "getGMGAMES.php");
     var data = {

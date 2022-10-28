@@ -71,7 +71,6 @@ class _SuperCatRandomState extends State<SuperCatRandom> {
     final myPerso = ModalRoute.of(context)!.settings.arguments as GameCommons;
     myUid = myPerso.myUid;
     myPseudo = myPerso.myPseudo;
-
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(actions: <Widget>[

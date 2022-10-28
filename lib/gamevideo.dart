@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:video_player/video_player.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:dart_ipify/dart_ipify.dart';
 
 //<PMLV2>
 class VideoPlayerApp extends StatelessWidget {
@@ -33,6 +34,7 @@ class VideoPlayerScreen extends StatefulWidget {
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
+  static bool boolTexfield = false;
   bool feuVert = false;
   List<PhotoBase> listVideoBase = [];
   int memoStockidRandom = 0;
@@ -41,7 +43,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   List<Memoto> listMemoto = [];
   bool getMemotoState = false;
   int getMemotoError = -1;
-
+  TextEditingController legendeController = TextEditingController();
   Icon thisIconclose = const Icon(Icons.lock_rounded);
   Icon thisIconopen = const Icon(Icons.lock_open_rounded);
   bool lockMemeState = true;
@@ -49,7 +51,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   Icon mmIcon = const Icon(Icons.lock_open_rounded);
   Icon phIcon = const Icon(Icons.lock_open_rounded);
   String memeLegende = "";
+  String memeLegendeUser = "";
   bool visStar = true;
+  String ipv4name = "";
   late int myUid;
   late String myPseudo;
 
@@ -58,6 +62,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     super.initState();
     cetteVideo = 0;
     getVideoBase();
+    getIP();
     getMemoto();
     mmIcon = thisIconopen;
     phIcon = thisIconopen;
@@ -141,7 +146,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                 iconSize: 35.0,
                 tooltip: 'Save Meme',
                 onPressed: () {
-                  //createMemeSolo();
+                  createMemeSolo();
                   //
                 },
               ),
@@ -154,6 +159,24 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       // VideoPlayerController to finish initializing.
       body: Column(
         children: [
+          Visibility(
+            visible: boolTexfield,
+            child: TextField(
+              controller: legendeController,
+              keyboardType: TextInputType.multiline,
+              maxLines: 2,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "",
+              ),
+              onChanged: (text) {
+                setState(() {
+                  memeLegendeUser = text;
+                  if (memeLegendeUser.isNotEmpty) memeLegende = memeLegendeUser;
+                });
+              },
+            ),
+          ),
           Text(
             memeLegende,
             style: GoogleFonts.averageSans(fontSize: 18.0),
@@ -343,7 +366,38 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
     );
   }
+  Future createMemeSolo() async {
+    Uri url = Uri.parse(pathPHP + "createMEMESOLO.php");
+    String _myPseudo = myPseudo;
 
+    if (_myPseudo.length < 2) {
+      _myPseudo = "GADGET";
+      if (ipv4name.length > 2) {
+        _myPseudo = ipv4name;
+      }
+    }
+    var data = {
+      "MEMOCAT": _myPseudo,
+      "MEMOSTOCK": memeLegendeUser,
+    };
+    if (memeLegendeUser.length > 2 && memeLegendeUser.length < 250) {
+      await http.post(url, body: data);
+    }
+
+    setState(() {
+      memeLegendeUser = "";
+      legendeController.text = "";
+    });
+
+    //<TODO>  relecture
+  }
+  Future getIP() async {
+    final ipv4 = await Ipify.ipv4();
+
+    setState(() {
+      ipv4name = ipv4;
+    });
+  }
   getIndexFromPhotoId(_thatPhotoId) {
     int index = 0;
     for (PhotoBase _brocky in listVideoBase) {
