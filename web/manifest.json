@@ -1,11 +1,11 @@
 {
-    "name": "gameover",
-    "short_name": "gameover",
+    "name": "pontabac",
+    "short_name": "pontabac",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "lamemopole",
+    "description": "Quizz famille",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
