@@ -154,10 +154,13 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
       // VideoPlayerController to finish initializing.
       body: Column(
         children: [
-          Text(
-            memeLegende,
-            style: GoogleFonts.averageSans(fontSize: 18.0),
-          ),
+          Container(
+              alignment: Alignment.bottomLeft,
+              child:
+              Text(
+                memeLegende,
+                style: GoogleFonts.averageSans(fontSize: 18.0),
+              )),
           Expanded(
             child:
             FutureBuilder(
@@ -317,30 +320,30 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   getRandom() {
 
-     setState(() {
-                if (!lockMemeState) {
-                  int randomMeme = Random().nextInt(listMemoto.length);
-                  memoStockidRandom = listMemoto[randomMeme].memostockid;
-                  memeLegende = listMemoto[randomMeme].memostock;
-                }
-                if (!lockPhotoState) {
-                  cetteVideo = Random().nextInt(listVideoBase.length - 1);
-                }
-                _controller = VideoPlayerController.network(
-                  'https://lamemopole.com/videopol/' +
-                      listVideoBase[cetteVideo].photofilename +
-                      "." +
-                      listVideoBase[cetteVideo].photofiletype,
-                );
+    setState(() {
+      if (!lockMemeState) {
+        int randomMeme = Random().nextInt(listMemoto.length);
+        memoStockidRandom = listMemoto[randomMeme].memostockid;
+        memeLegende = listMemoto[randomMeme].memostock;
+      }
+      if (!lockPhotoState) {
+        cetteVideo = Random().nextInt(listVideoBase.length - 1);
+      }
+      _controller = VideoPlayerController.network(
+        'https://lamemopole.com/videopol/' +
+            listVideoBase[cetteVideo].photofilename +
+            "." +
+            listVideoBase[cetteVideo].photofiletype,
+      );
 
-                // Initialize the controller and store the Future for later use.
-                _initializeVideoPlayerFuture = _controller.initialize();
-                // Use the controller to loop the video.
-                _controller.setLooping(true);
-                _controller.play();
-                visStar = true;
+      // Initialize the controller and store the Future for later use.
+      _initializeVideoPlayerFuture = _controller.initialize();
+      // Use the controller to loop the video.
+      _controller.setLooping(true);
+      _controller.play();
+      visStar = true;
 
-              }
+    }
 
 
 
