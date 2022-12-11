@@ -148,7 +148,9 @@ class _RandoMemeState extends State<RandoMeme> {
                 setState(() {
                   boolCategory = !boolCategory;
                 });
-              }),
+              }
+
+              ),
           IconButton(
               icon: const Icon(Icons.message_outlined),
               iconSize: 35,

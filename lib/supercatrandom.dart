@@ -106,7 +106,9 @@ class _SuperCatRandomState extends State<SuperCatRandom> {
                   lockPhoto();
                 },
               ),
-              Text(nbPhotoRandom.toString()),
+              //Text(nbPhotoRandom.toString()),
+               Text(listPhotoBase[cestCeluiLa].toString()),
+
               Visibility(
                 visible: visStar,
                 child: IconButton(
