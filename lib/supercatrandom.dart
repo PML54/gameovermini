@@ -107,7 +107,7 @@ class _SuperCatRandomState extends State<SuperCatRandom> {
                 },
               ),
               //Text(nbPhotoRandom.toString()),
-               Text(listPhotoBase[cestCeluiLa].toString()),
+               Text(listPhotoBase[cestCeluiLa].photoinode.toString()),
 
               Visibility(
                 visible: visStar,
