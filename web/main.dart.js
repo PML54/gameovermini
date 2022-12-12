@@ -71421,7 +71421,7 @@ l.z=l.x=0
 l.Q=m
 l.as=30
 l.ax=l.at=0
-k=A.aR("https://lamemopole.com/php/createGAMEBAC.php",0,null)
+k=A.aR("https://lamemopole.com/php/createGAME.php",0,null)
 q.go=-1
 l=B.d.i($.k6().b)
 m=B.d.i($.k6().c)
@@ -72394,7 +72394,7 @@ K(a){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e=this,d=null
 if($.e0>0)e.uO()
 e.q(new A.ajs())
 A.Lg(B.fq)
-s=A.dL(d,A.a5("lamemopole.com V1.83"+e.ax.b,d,d,d,A.bM(d,15),d,d))
+s=A.dL(d,A.a5("lamemopole.com V1.84"+e.ax.b,d,d,d,A.bM(d,15),d,d))
 r=t.w
 q=a.R(r).f
 r=a.R(r).f

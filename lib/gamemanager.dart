@@ -453,7 +453,7 @@ class _GameManagerState extends State<GameManager> {
       _gameTimer,
       _gameOpen,
     );
-    Uri url = Uri.parse(pathPHP + "createGAMEBAC.php");
+    Uri url = Uri.parse(pathPHP + "createGAME.php");
     createGameState = false;
     createGameError = -1;
 // onforce status à Zero
