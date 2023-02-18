@@ -568,8 +568,7 @@ bool       createPhotoBaseState = false;
     setState(() {
       createPhotoBaseState = false;
     });
-print ( 'inode = '+_inode.toString() );
-print ("casename = "+ _casename);
+
     var data = {
       "PHOTOINODE":_inode.toString(),
       "PHOTOUPLOADER": "PHL",
@@ -585,7 +584,7 @@ print ("casename = "+ _casename);
     };
     var res = await http.post(url, body: data);
     if (res.statusCode == 200) {
-  print ("OK Creation");
+
       setState(() {
         createPhotoBaseState  = true;
       });

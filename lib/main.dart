@@ -20,8 +20,10 @@ import 'package:gameover/usercreate.dart';
 import 'package:gameover/gamevideo.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
-import 'phlcommons.dart';
 
+import 'package:dart_ipify/dart_ipify.dart';
+import 'phlcommons.dart';
+import 'package:intl/intl.dart';
 //<PMLV2>
 void main() {
   String myurl = Uri.base.toString(); //get complete url
@@ -48,6 +50,9 @@ class _MenoPaulState extends State<MenoPaul> {
   String dispConnectivity = "";
   String errorMessage = "";
   bool boolMsg = false;
+  late String ipv4name;
+  String datecreate = "";
+  final now = DateTime.now();
   final Connectivity _connectivity = Connectivity();
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
   bool isAdmin = false;
@@ -68,7 +73,7 @@ class _MenoPaulState extends State<MenoPaul> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            'lamemopole.com V1.84' + myPerso.myPseudo,
+            'lamemopole.com V2.0' + myPerso.myPseudo,
             style: GoogleFonts.averageSans(fontSize: 15.0),
           ),
         ),
@@ -541,6 +546,11 @@ class _MenoPaulState extends State<MenoPaul> {
     setState(() {
       isAdmin = false;
       isGamer = false;
+
+      datecreate = DateFormat('d/M/y').format(now); // 28/03/2020
+      ipv4name = "xx.xx.xx.xx";
+      getIP();
+
     });
   }
 
@@ -557,4 +567,23 @@ class _MenoPaulState extends State<MenoPaul> {
       }
     });
   }
+  Future whoPlay() async {
+    Uri url = Uri.parse(pathPHP + "createMEMOPOLIP.php");
+    var data = {
+
+
+      "UIPTODAY": ipv4name,
+      "ULDATE": datecreate,
+
+    };
+
+    bool syntaxOK = true;
+    http.Response response = await http.post(url, body: data);
+  }
+  Future getIP() async {
+    final ipv4 = await Ipify.ipv4();
+    ipv4name = ipv4;
+    whoPlay();
+  }
+
 }
